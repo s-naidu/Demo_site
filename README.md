@@ -1,4 +1,4 @@
-# Demo_site
+# demo_site
 This is sample demo_site for CICD automation testing with git,jenkins,docker
 
 ## Creating Virtual Environment

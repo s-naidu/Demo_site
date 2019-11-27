@@ -1,5 +1,5 @@
 # set the base image 
-FROM Python-3.6
+FROM python-3.6
 ADD . /my-django-app
 WORKDIR /my-django-app
 RUN apk --update add bash nano

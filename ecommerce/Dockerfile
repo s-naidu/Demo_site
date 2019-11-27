@@ -1,15 +1,12 @@
 # set the base image 
 FROM Python-3.6
-# File Author / Maintainer
-MAINTAINER Sudarshan
-#add project files to the usr/src/app folder
-ADD . /usr/src/app
-#set directoty where CMD will execute 
-WORKDIR /usr/src/app
-COPY requirements.txt ./
-# Get pip to download and install requirements:
-RUN pip install --no-cache-dir -r requirements.txt
-# Expose ports
-EXPOSE 8000
-# default command to execute    
-CMD exec gunicorn djangoapp.wsgi:application --bind 0.0.0.0:8000 --workers 3
+ADD . /my-django-app
+WORKDIR /my-django-app
+RUN apk --update add bash nano
+ENV STATIC_URL /ecommerce
+ENV STATIC_PATH /home/administrator/demosite/ecommerce
+COPY ./requirements.txt /home/administrator/demosite/ecommerce/requirements.txt
+RUN pip install -r /home/administrator/demosite/ecommerce/requirements.txt
+RUN pip install -r requirements.txt
+
+CMD [ "python", "./manage.py runserver 0.0.0.0:8000" ]

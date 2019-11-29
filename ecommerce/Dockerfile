@@ -2,7 +2,6 @@
 FROM python-3.6
 ADD . /my-django-app
 WORKDIR /my-django-app
-RUN apk --update add bash nano
 ENV STATIC_URL /ecommerce
 ENV STATIC_PATH /home/administrator/demosite/ecommerce
 COPY ./requirements.txt /home/administrator/demosite/ecommerce/requirements.txt

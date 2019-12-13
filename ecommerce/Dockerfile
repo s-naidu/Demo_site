@@ -1,5 +1,5 @@
 # set the base image 
-FROM python-3.6
+FROM python:3.6
 ADD . /my-django-app
 WORKDIR /my-django-app
 ENV STATIC_URL /ecommerce
